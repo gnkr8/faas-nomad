@@ -1,5 +1,5 @@
 job "faas-monitoring" {
-  datacenters = ["dc1"]
+  datacenters = ["home"]
 
   type = "service"
   
@@ -55,8 +55,8 @@ job "faas-monitoring" {
       }
 
       resources {
-        cpu    = 100 # 100 MHz
-        memory = 128 # 128MB
+        cpu    = 50 # 100 MHz
+        memory = 64 # 128MB
 
         network {
           mbits = 10
@@ -123,8 +123,8 @@ job "faas-monitoring" {
       }
 
       resources {
-        cpu    = 200 # 200 MHz
-        memory = 256 # 256MB
+        cpu    = 100 # 200 MHz
+        memory = 128 # 256MB
 
         network {
           mbits = 10
@@ -162,8 +162,8 @@ job "faas-monitoring" {
       }
 
       resources {
-        cpu    = 200 # 500 MHz
-        memory = 256 # 256MB
+        cpu    = 100 # 500 MHz
+        memory = 128 # 256MB
 
         network {
           mbits = 10

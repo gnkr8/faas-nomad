@@ -1,5 +1,5 @@
 job "faas-nomadd" {
-  datacenters = ["dc1"]
+  datacenters = ["home"]
 
   type = "service"
 

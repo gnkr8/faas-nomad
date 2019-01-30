@@ -1,5 +1,5 @@
 job "faas-nomadd" {
-  datacenters = ["dc1"]
+  datacenters = ["home"]
 
   type = "system"
 
@@ -26,9 +26,9 @@ job "faas-nomadd" {
         image = "quay.io/nicholasjackson/faas-nomad:v0.3.6"
 
         args = [
-          "-nomad_region", "${NOMAD_REGION}",
-          "-nomad_addr", "${NOMAD_IP_http}:4646",
-          "-consul_addr", "${NOMAD_IP_http}:8500",
+          "-nomad_region", "global",
+          "-nomad_addr", "consul1.consul:4646",
+          "-consul_addr", "localhost:8500",
           "-statsd_addr", "${NOMAD_ADDR_statsd_statsd}",
           "-node_addr", "${NOMAD_IP_http}",
           "-basic_auth_secret_path", "/secrets",
@@ -56,7 +56,7 @@ job "faas-nomadd" {
 //       }
 
       resources {
-        cpu    = 500 # 500 MHz
+        cpu    = 200 # 500 MHz
         memory = 128 # 128MB
 
         network {
@@ -101,7 +101,7 @@ EOH
       }
 
       resources {
-        cpu    = 500 # 500 MHz
+        cpu    = 200 # 500 MHz
         memory = 128 # 128MB
 
         network {
@@ -132,7 +132,7 @@ EOH
       }
 
       resources {
-        cpu    = 100 # 100 MHz
+        cpu    = 50 # 100 MHz
         memory = 36 # 36MB
 
         network {
@@ -194,8 +194,8 @@ EOH
       }
 
       resources {
-        cpu    = 400 # 100 MHz
-        memory = 128 # 128MB
+        cpu    = 100 # 100 MHz
+        memory = 64 # 128MB
 
         network {
           mbits = 1

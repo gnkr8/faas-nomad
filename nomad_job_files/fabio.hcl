@@ -1,5 +1,5 @@
 job "fabio" {
-  datacenters = ["dc1"]
+  datacenters = ["home"]
 
   type = "system"
 
@@ -23,11 +23,12 @@ job "fabio" {
       driver = "docker"
       
       env = {
-        registry.consul.addr = "${NOMAD_IP_http}:8500"
+        REGISTRY_CONSUL_ADDR = "localhost:8500"
       }
 
       config {
         image = "magiconair/fabio:1.5.3-go1.9.2"
+        network_mode = "host"
 
         port_map {
           http = 9999
@@ -37,8 +38,8 @@ job "fabio" {
       }
 
       resources {
-        cpu    = 500 # 500 MHz
-        memory = 256 # 256MB
+        cpu    = 200 # 500 MHz
+        memory = 128 # 256MB
 
         network {
           mbits = 10

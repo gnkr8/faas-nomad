@@ -1,5 +1,5 @@
 job "natsio" {
-  datacenters = ["dc1"]
+  datacenters = ["home"]
 
   group "faas-nats" {
     count = 1
@@ -66,3 +66,4 @@ job "natsio" {
       }
     }
   }
+}

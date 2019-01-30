@@ -1,5 +1,5 @@
 job "http-echo" {
-  datacenters = ["dc1"]
+  datacenters = ["home"]
 
  update {
     max_parallel     = 1
